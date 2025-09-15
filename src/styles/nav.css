@@ -1,0 +1,48 @@
+.nav {
+    margin: 0 auto;
+    display: grid;
+    
+
+    height: 10vh;
+    width: 100%;
+    grid-template-columns: 70% 30%;
+    background: var(--nav-background);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+    .nav_logo {
+
+        display: flex;
+        align-items: center;
+
+        padding-left: 5rem;
+        text-transform: uppercase;
+        text-shadow: none;
+        color: var(--body-background);
+
+        font-size: 2rem;
+
+        .logo {
+
+            display: flex;
+            align-items: center;
+
+            background: var(--button-focus);
+            height: 100%;
+            padding: 0 2rem;
+            font-style: italic;
+        }
+    }
+
+    .nav_authentification {
+        
+        display: grid;
+        justify-content: space-around;
+        align-items: center;
+        color:  var(--body-background);
+
+
+        grid-template-columns: 50% 50%;
+        padding: 0 2rem;
+        gap: 1rem;
+    }
+}

@@ -1,0 +1,14 @@
+.formRegister {
+
+    display: flex;
+    align-items: center;
+
+    height: 60vh;
+    width: 40rem;
+
+    margin: 8rem auto;
+
+    border-radius: 1rem;
+    background: white; 
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}

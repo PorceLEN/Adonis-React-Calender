@@ -1,0 +1,6 @@
+:root {
+    --body-background: rgba(255, 255, 255, 0.705);
+    --nav-background: rgba(255, 255, 255, 0.379);
+    --button-focus: #04AA6D;
+    --commun-black: rgba(0, 0, 0, 0.474);
+}

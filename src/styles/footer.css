@@ -1,0 +1,12 @@
+.footer {
+    margin: 0 auto;
+    display: flex;
+    font-family: var(--font-nav);
+
+    height: 5.5rem;
+    width: 90%;
+    grid-template-columns: 70% 30%;
+    background: rgb(220, 215, 215);
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    border-radius: 1rem 1rem 0 0;
+}

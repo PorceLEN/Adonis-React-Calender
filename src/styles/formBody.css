@@ -1,0 +1,19 @@
+.formBody {
+
+    display: grid;
+    grid-template-rows: 20% 20% 20% 20% 20%;
+    align-items: center;
+    grid-template-areas: 
+    "pseudo"
+    "email"
+    "password"
+    "confirm"
+    ;
+
+    height: 80%;
+    width: 60%;
+
+    margin: 0 auto;
+    
+
+}
