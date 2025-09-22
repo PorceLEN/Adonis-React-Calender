@@ -18,19 +18,17 @@
 
 /* COMPONENTS FORM */
 
-@import url("styles/formRegister.css");
-@import url("styles/formLogin.css");
-@import url("styles/formField.css");
-@import url("styles/formInput.css");
-@import url("styles/formBody.css");
-@import url("styles/formLabel.css");
-@import url("styles/formSubmitButton.css");
+@import url("styles/form_authentification.css");
+@import url("styles/form_input.css");
+@import url("styles/form_body.css");
+@import url("styles/form_label.css");
+@import url("styles/form_submit_button.css");
 
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: var(--font-nav);
 }
 

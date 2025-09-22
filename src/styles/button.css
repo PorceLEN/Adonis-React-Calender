@@ -1,25 +1,20 @@
- .button_authentification {
-    
-    background: #04AA6D;
-    text-align: center;
- 
-    max-height: 4rem;
-    max-width: 12rem;
-    width: 12rem;
+ .global_button {
+     width: 12rem;
+     padding: 1rem;
+     border: none;
+     font-size: 1.2rem;
+     text-align: center;
+     background: #04AA6D;
+     box-shadow: rgb(0 0 0 / 24%) 0 3px 8px;
+     transition: 0.2s;
+     border-radius: 0.5rem;
+     cursor: pointer;
+     max-height: 4rem;
+     max-width: 12rem;
+     text-transform: uppercase;
 
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-
-    font-size: 1.2rem;
-    padding: 1rem;
-    border-radius: 0.5rem;
-
-    transition: 0.2s;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-
-    &:hover {
-        color: rgb(255, 255, 255);
-        background: #166b4c;
-    }  
-}
+     &:hover {
+         color: rgb(255 255 255);
+         background: #166b4c;
+     }
+ }

@@ -1,7 +1,6 @@
 .formLabel {
-
-   font-family: var(--font-nav);
    font-size: 1rem;
    font-weight: 500;
    color: var(--commun-black);
+   font-family: var(--font-nav);
 }

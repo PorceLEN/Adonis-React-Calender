@@ -1,9 +1,9 @@
 a, .react-router-link {
-  text-decoration: none;  /* Pas de soulignement */
   color: inherit; /* Lien avec la même couleur que le texte environnant */
+  text-decoration: none;  /* Pas de soulignement */
 }
 
 a:hover, .react-router-link:hover {
-  text-decoration: none; /* Pas de soulignement au survol */
   color: inherit; /* Pas de changement de couleur au survol */
+  text-decoration: none; /* Pas de soulignement au survol */
 }

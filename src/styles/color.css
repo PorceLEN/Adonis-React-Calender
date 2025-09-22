@@ -1,6 +1,6 @@
 :root {
-    --body-background: rgba(255, 255, 255, 0.705);
-    --nav-background: rgba(255, 255, 255, 0.379);
+    --body-background: rgb(255 255 255 / 70.5%);
+    --nav-background: rgb(255 255 255 / 37.9%);
     --button-focus: #04AA6D;
-    --commun-black: rgba(0, 0, 0, 0.474);
+    --commun-black: rgb(0 0 0 / 47.4%);
 }
