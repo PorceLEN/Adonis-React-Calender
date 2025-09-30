@@ -1,4 +1,4 @@
-import type { UserRegisterPayload } from "../../../types/register_payload";
+import type { UserRegisterPayload } from "../../../types/UserRegisterPayload";
 
 export default async function registerWithCredentials({
   pseudo,
@@ -12,6 +12,7 @@ export default async function registerWithCredentials({
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify({ pseudo, email, password, confirmPassword }),
     });
 
@@ -22,6 +23,7 @@ export default async function registerWithCredentials({
 
     const data = await response.json();
     return data;
+
   } catch (err) {
     if (err instanceof Error) {
       return { error: err.message };

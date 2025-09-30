@@ -1,13 +1,13 @@
 import { Form } from "../../components/form/form_field_struct";
 import { Input } from "../../components/form/inputs_form_struct";
-import Button from "../../components/button";
+import Button from "../../components/Button";
 
 
 //---------------------------------------------
 
 // hooks
 
-import useRegisterForm from "../../hooks/use_form_register";
+import useRegisterForm from "../../hooks/useFormRegister";
 
 export default function Register() {
 

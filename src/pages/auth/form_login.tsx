@@ -1,7 +1,7 @@
 import { Form } from "../../components/form/form_field_struct";
 import { Input } from "../../components/form/inputs_form_struct";
-import Button from "../../components/button";
-import useLoginForm from "../../hooks/use_formALERTE";
+import Button from "../../components/Button";
+import useLoginForm from "../../hooks/useFormLoginALERTE";
 
 export default function Login() {
   const { register, handleSub } = useLoginForm();

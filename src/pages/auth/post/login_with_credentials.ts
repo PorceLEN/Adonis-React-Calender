@@ -1,4 +1,4 @@
-import type { UserLoginPayload } from "../../../types/login_payloadALERTE";
+import type { UserLoginPayload } from "../../../types/UserLoginPayload";
 
 export default async function authenticateWithCredentials({
   email,
@@ -10,6 +10,7 @@ export default async function authenticateWithCredentials({
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify({ email, password }),
     });
 
@@ -19,10 +20,12 @@ export default async function authenticateWithCredentials({
     }
 
     const data = await response.json();
+
     return data;
   } catch (err) {
     if (err instanceof Error) {
       return { error: err.message };
-    } else return { error: "Erreur inconnue" };
+    }
+    return { error: "Erreur inconnue" };
   }
 }
