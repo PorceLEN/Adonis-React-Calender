@@ -1,22 +1,23 @@
 // useLoginForm.ts
 import { useForm } from "react-hook-form";
 import type { UserLoginPayload } from "../types/UserLoginPayload";
-import authenticateWithCredentials from "../pages/auth/post/login_with_credentials";
+import userLogin from "../pages/auth/post/userLogin";
 
 
-export default function useLoginForm() {
+
+
+export default function useFormLogin() {
   const { register, handleSubmit } = useForm<UserLoginPayload>();
 
   function userInformations(data: UserLoginPayload) {
     console.log(data);
-    
   }
 
-  const handleSub = handleSubmit(authenticateWithCredentials);
+  const handleLogin = handleSubmit(userLogin);
 
   return {
     register,
-    handleSub,
+    handleLogin,
 
     ///////////////
 

@@ -1,8 +1,19 @@
 import { Link } from "react-router-dom";
-import { useAuth } from "../contexts/userContext";
+import { authentification, useAuthContext } from "../contexts/AuthContext";
+import Button from "./Button";
+
 
 export default function Navbar() {
-  const { user } = useAuth();
+  const { user } = useAuthContext();
+  const { logoutSubmit } = authentification();
+  
+
+  if (!user) {
+    console.log(`L'utilisateur est déconnecté => ${user}`)
+  } else {
+    console.log(`L'utilisateur est connecté => ${Object.entries(user)}`);
+  }
+  
 
   return (
     <nav className="nav">
@@ -23,12 +34,9 @@ export default function Navbar() {
             </Link>
           </>
         )}
-
         {user && (
           <>
-            <Link to="home" className="LOGOUT global_button">
-              Se déconnecter
-            </Link>
+            <Button onClick={logoutSubmit} className="global_button">Se déconnecter</Button>
           </>
         )}
       </div>

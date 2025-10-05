@@ -1,13 +1,13 @@
 import { Form } from "../../components/form/form_field_struct";
 import { Input } from "../../components/form/inputs_form_struct";
 import Button from "../../components/Button";
-import useLoginForm from "../../hooks/useFormLoginALERTE";
+import useLoginForm from "../../hooks/useFormLogin";
 
 export default function Login() {
-  const { register, handleSub } = useLoginForm();
+  const { register, handleLogin } = useLoginForm();
 
   return (
-    <Form onSubmit={handleSub}>
+    <Form onSubmit={handleLogin}>
       <Form.Body>
         <Form.Field>
           <Form.Label htmlFor="email">Email</Form.Label>

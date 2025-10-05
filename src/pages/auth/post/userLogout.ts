@@ -1,19 +1,11 @@
-import type { UserRegisterPayload } from "../../../types/UserRegisterPayload";
-
-export default async function registerWithCredentials({
-  pseudo,
-  email,
-  password,
-  confirmPassword
-}: UserRegisterPayload) {
+export default async function userLogout() {
   try {
-    const response = await fetch("http://localhost:3333/register", {
-      method: "POST",
+    const response = await fetch("http://localhost:3333/logout", {
+      method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },
       credentials: "include",
-      body: JSON.stringify({ pseudo, email, password, confirmPassword }),
     });
 
     if (!response.ok) {
@@ -22,13 +14,13 @@ export default async function registerWithCredentials({
     }
 
     const data = await response.json();
-    return data;
 
+    console.log(data);
+  
+    return data;
   } catch (err) {
     if (err instanceof Error) {
       return { error: err.message };
     } else return { error: "Erreur inconnue" };
   }
 }
-
-///// Problème onSubmit form

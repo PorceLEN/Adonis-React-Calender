@@ -6,8 +6,9 @@ import Navbar from "./components/Nav";
 // import Footer from './components/footer'
 
 import "./App.css";
-import IfIsLogin from "./components/PrivateRouteIfIsLogin";
-import { AuthProvider } from "./contexts/userContext";
+
+import { AuthProvider } from "./contexts/AuthContext";
+import IsLogin from "./components/PrivateRouteIfIsLogin";
 
 export default function App() {
   return (
@@ -16,20 +17,22 @@ export default function App() {
         <Navbar />
         <Routes>
           <Route path="/home" element={<Home />} />
+
           <Route
             path="/login"
             element={
-              <IfIsLogin>
+              <IsLogin>
                 <Login />
-              </IfIsLogin>
+              </IsLogin>
             }
           />
+
           <Route
             path="/register"
             element={
-              <IfIsLogin>
+              <IsLogin>
                 <Register />
-              </IfIsLogin>
+              </IsLogin>
             }
           />
         </Routes>

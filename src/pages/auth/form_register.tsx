@@ -7,14 +7,14 @@ import Button from "../../components/Button";
 
 // hooks
 
-import useRegisterForm from "../../hooks/useFormRegister";
+import useFormRegister from "../../hooks/useFormRegister";
 
 export default function Register() {
 
-  const { register, handleSub } = useRegisterForm();
+  const { register, handleRegister } = useFormRegister();
 
   return (
-    <Form onSubmit={handleSub}>
+    <Form onSubmit={handleRegister}>
       <Form.Body>
         <Form.Field>
           <Form.Label htmlFor="pseudo">Nom d'utilisateur</Form.Label>
