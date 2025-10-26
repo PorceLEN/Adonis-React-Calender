@@ -1,9 +1,6 @@
 import type { UserLoginPayload } from "../../../types/UserLoginPayload";
 
-export default async function userLogin({
-  email,
-  password,
-}: UserLoginPayload) {
+export default async function userLogin({ email, password }: UserLoginPayload) {
   try {
     const response = await fetch("http://localhost:3333/login", {
       method: "POST",
@@ -28,4 +25,3 @@ export default async function userLogin({
     return { error: "Erreur inconnue" };
   }
 }
- 

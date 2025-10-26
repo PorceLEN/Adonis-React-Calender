@@ -6,6 +6,7 @@ export default async function userRegister({
   password,
   confirmPassword
 }: UserRegisterPayload) {
+
   try {
     const response = await fetch("http://localhost:3333/register", {
       method: "POST",
@@ -24,11 +25,11 @@ export default async function userRegister({
     const data = await response.json();
     return data;
 
+
+
   } catch (err) {
     if (err instanceof Error) {
       return { error: err.message };
     } else return { error: "Erreur inconnue" };
   }
 }
-
-///// Problème onSubmit form

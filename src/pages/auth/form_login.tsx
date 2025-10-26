@@ -5,18 +5,18 @@ import useLoginForm from "../../hooks/useFormLogin";
 
 export default function Login() {
   const { register, handleLogin } = useLoginForm();
-
+  
   return (
     <Form onSubmit={handleLogin}>
       <Form.Body>
         <Form.Field>
           <Form.Label htmlFor="email">Email</Form.Label>
-          <Input.Email {...register("email")} />
+          <Input.Email {...register("email", { required: "Email requis"})} />
         </Form.Field>
 
         <Form.Field>
           <Form.Label htmlFor="password">Mot de passe</Form.Label>
-          <Input.Password type="password" {...register("password")} />
+          <Input.Password type="password" {...register("password", { required: "Mot de passe requis"})} />
         </Form.Field>
 
         <Form.Row />

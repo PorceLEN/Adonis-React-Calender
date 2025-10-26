@@ -1,14 +1,16 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router";
 import Home from "./pages/home";
 import Login from "./pages/auth/form_login";
 import Register from "./pages/auth/form_register";
-import Navbar from "./components/Nav";
+import Navbar from "./components/NavALERTE";
 // import Footer from './components/footer'
 
 import "./App.css";
 
 import { AuthProvider } from "./contexts/AuthContext";
-import IsLogin from "./components/PrivateRouteIfIsLogin";
+import Dashboard from "./pages/dashboard";
+import GuestRoute from "./components/private/GuestRoute";
+import AuthRoute from "./components/private/AuthRoute";
 
 export default function App() {
   return (
@@ -16,26 +18,18 @@ export default function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
+          <Route element={<GuestRoute />}>
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+          </Route>
+
           <Route path="/home" element={<Home />} />
 
-          <Route
-            path="/login"
-            element={
-              <IsLogin>
-                <Login />
-              </IsLogin>
-            }
-          />
-
-          <Route
-            path="/register"
-            element={
-              <IsLogin>
-                <Register />
-              </IsLogin>
-            }
-          />
+        <Route element={<AuthRoute />}>
+          <Route path="/dashboard" element={<Dashboard />}></Route>
+          </Route>
         </Routes>
+
         {/* <Footer /> */}
       </BrowserRouter>
     </AuthProvider>

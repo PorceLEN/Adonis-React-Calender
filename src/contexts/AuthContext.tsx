@@ -7,11 +7,11 @@ import {
 } from "react";
 import type { UserContextType } from "../types/UserContextType";
 import userLogout from "../pages/auth/post/userLogout";
-import useNav from "../hooks/useNavigate";
-// import userLogin from "../pages/auth/post/userLogin";
-// import type { UserLoginPayload } from "../types/UserLoginPayload";
-// import userRegister from "../pages/auth/post/userRegister";
-// import type { UserRegisterPayload } from "../types/UserRegisterPayload";
+import { useNavigate } from "react-router";
+import userLogin from "../pages/auth/post/userLogin";
+import type { UserLoginPayload } from "../types/UserLoginPayload";
+import userRegister from "../pages/auth/post/userRegister";
+import type { UserRegisterPayload } from "../types/UserRegisterPayload";
 
 // get if user login or logout
 
@@ -26,7 +26,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     fetch("http://localhost:3333/me", { credentials: "include" })
       .then((response) => (response.ok ? response.json() : null))
-      .then((data) => setUser(data))
+      .then((data) => {
+        if (data?.user?.pseudo) {
+          setUser(data.user.pseudo);
+        }
+      })
       .catch(() => setUser(null));
   }, []);
 
@@ -41,54 +45,55 @@ export function useAuthContext() {
   return useContext(AuthContext);
 }
 
-//////////////////////////////////////////////////////////////////////
-
 // Authentification
 
 export function authentification() {
   const { setUser } = useAuthContext();
-  const { navigate } = useNav();
+  const navigate = useNavigate();
 
-  //////////////////////////////////////////////////////////////////////
+  async function loginSubmit(data: UserLoginPayload) {
+    try {
+      const response = await userLogin(data);
 
-  // async function loginSubmit(input: UserLoginPayload) {
-  //   try {
-  //     const user = await userLogin(input); // method avec le fetch
-  //     console.log(user);
-  //     setUser(user)
-  //   } catch (error) {
-  //     console.error("Erreur lors de la connexion", error);
-  //   }
-  // }
+      if (!response || !response.user?.pseudo) {
+        console.error("Utilisateur inexistant ou identifiants invalides");
+        return;
+      }
 
-  //////////////////////////////////////////////////////////////////////
+      setUser(response.user.pseudo);
+      navigate("/dashboard");
+    } catch (error) {
+      console.error("Erreur lors de la connexion :", error);
+    }
+  }
 
   async function logoutSubmit() {
     try {
-      const user = await userLogout();
-      setUser(user);
-      navigate("/")
+      await userLogout();
+      setUser(null);
+      navigate("/home");
     } catch (error) {
       console.error("Erreur lors de la déconnexion :", error);
     }
   }
 
-  //////////////////////////////////////////////////////////////////////
+  async function registerSubmit(data: UserRegisterPayload) {
+    try {
+      const response = await userRegister(data);
 
-  // async function registerSubmit(input: UserRegisterPayload) {
-  //   try {
-  //     const user = await userRegister(input);
-  //   } catch (error) {
-  //     console.error("Erreur lors de l'inscription :", error);
-  //   }
-  // }
+      if (!response || !response.user?.pseudo) {
+        throw new Error("Erreur lors de l'inscription");
+      }
 
-  //////////////////////////////////////////////////////////////////////
+      navigate("/login");
+    } catch (error) {
+      console.error("Erreur lors de l'inscription :", error);
+    }
+  }
 
   return {
-    // registerSubmit,
-    // loginSubmit,
+    registerSubmit,
+    loginSubmit,
     logoutSubmit,
   };
 }
-

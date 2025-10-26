@@ -2,7 +2,6 @@ import { Form } from "../../components/form/form_field_struct";
 import { Input } from "../../components/form/inputs_form_struct";
 import Button from "../../components/Button";
 
-
 //---------------------------------------------
 
 // hooks
@@ -10,9 +9,9 @@ import Button from "../../components/Button";
 import useFormRegister from "../../hooks/useFormRegister";
 
 export default function Register() {
-
   const { register, handleRegister } = useFormRegister();
 
+ 
   return (
     <Form onSubmit={handleRegister}>
       <Form.Body>
@@ -32,14 +31,16 @@ export default function Register() {
         </Form.Field>
 
         <Form.Field>
-          <Form.Label htmlFor="confirmPassword">Confirmer le mot de passe</Form.Label>
+          <Form.Label htmlFor="confirmPassword">
+            Confirmer le mot de passe
+          </Form.Label>
           <Input.Confirm type="password" {...register("confirmPassword")} />
         </Form.Field>
 
         <Form.Field>
           <Button
             type="submit"
-
+            
             //loading
           >
             S'inscrire

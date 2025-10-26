@@ -24,6 +24,10 @@
 @import url("styles/form_label.css");
 @import url("styles/form_submit_button.css");
 
+/* PAGES */
+
+@import url("styles/dashboard.css");
+
 
 * {
   box-sizing: border-box;

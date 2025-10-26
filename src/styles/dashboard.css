@@ -1,0 +1,9 @@
+.global-dashboard {
+    height: 90vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-size: 15rem;
+}
